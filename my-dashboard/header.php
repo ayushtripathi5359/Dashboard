@@ -1,5 +1,8 @@
 <?php
+$currentPage = basename($_SERVER['PHP_SELF']);
+$isLeadsPage = $currentPage == 'leads.php';
 ?>
+
   <!-- Enhanced Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -79,15 +82,40 @@
     </div>
   </aside>
 
-  <main class="main-content" id="mainContent">
-    <!-- Enhanced Header -->
-    <header class="header">
-      <div class="header-left">
-        <div class="welcome-text">Welcome back, Ayush👋</div>
-        <h1 class="page-title"><?php echo isset($pageTitle) ? $pageTitle : 'Dashboard'; ?></h1>
-      </div>
-      
-      <div class="header-right">
+  <main class="main-content <?php echo $isLeadsPage ? 'leads-main-content' : ''; ?>" id="mainContent">
+<header class="header <?php echo $isLeadsPage ? 'leads-header' : ''; ?>">
+    <div class="header-left">
+        <?php if (!$isLeadsPage): ?>
+            <div class="welcome-text">Welcome back, Ayush👋</div>
+        <?php endif; ?>
+        <h1 class="page-title <?php echo $isLeadsPage ? 'leads-title' : ''; ?>">
+            <?php echo isset($pageTitle) ? $pageTitle : 'Dashboard'; ?>
+        </h1>
+        <?php if ($isLeadsPage): ?>
+            <div class="tab-row">
+                <button class="tab-btn active">
+                    My Leads <span class="count">46</span>
+                </button>
+                <button class="tab-btn booked">
+                    Booked <span class="count">0</span>
+                </button>
+                <button class="tab-btn">
+                    Today FollowUp's <span class="count">0</span>
+                </button>
+                <button class="tab-btn dropped">
+                    Dropped <span class="count">10</span>
+                </button>
+                <button class="tab-btn ads">
+                    Ads <span class="count">22</span>
+                </button>
+                <button class="tab-btn">
+                    SHI-D <span class="count">30</span>
+                </button>
+            </div>
+        <?php endif; ?>
+    </div>
+    
+    <div class="header-right">
         <button class="header-btn tooltip" id="searchBtn" data-tooltip="Search">
           <i class="fas fa-search"></i>
         </button>

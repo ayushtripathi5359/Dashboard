@@ -474,6 +474,9 @@ body::after {
       transition: var(--transition);
     }
 
+    .leads-main-content{
+      padding-top: 0.5rem;
+    }
     .main-content.expanded {
       margin-left: var(--sidebar-collapsed-width);
     }
@@ -841,11 +844,9 @@ body::after {
   gap: 1.5rem;
 }
 
-.dashboard-card {
-  background: #DAEAEA;
+.dashboard-card-leads {
+  background: transparent;
   border-radius: 20px;
-  padding: 1.2rem;
-  box-shadow: 0 30px 20px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
   flex: 1;
 }
@@ -1513,109 +1514,12 @@ body::after {
 /* Updated Tab and Filter Button Styles */
 /* Modern Button Styles - New Design */
 
-.tab-row, .filter-row {
-            margin: 15px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            align-items: center;
-        }
-
-        .tab-btn {
-            background-color: #f1f3f4;
-            border: none;
-            border-radius: 25px;
-            padding: 10px 18px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            color: #5f6368;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .tab-btn:hover {
-            background-color: #e8eaed;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
-            color: white;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
-            transform: translateY(-1px);
-        }
-
-        .tab-btn .count {
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #1a73e8;
-            padding: 2px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 600;
-            min-width: 18px;
-            text-align: center;
-        }
-
-        .tab-btn.active .count {
-            background-color: rgba(255, 255, 255, 0.25);
-            color: white;
-        }
-
-        .filter-btn {
-            background-color: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 20px;
-            padding: 8px 14px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            color: #3c4043;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .view-remark{
-          background-color: #f8f9fa;
-            border: 1px solid #dadce0;
-            border-radius: 20px;
-            padding: 8px 14px;
-            font-size: 13px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition);
-            color: #3c4043;
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .filter-btn:hover {
-            background-color: #f1f3f4;
-            border-color: #bdc1c6;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .filter-btn.active {
-            background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
-            color: white;
-            border-color: #1a73e8;
-            box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-        }
 
         /* Dashboard Card */
 
 
 .tab-row, .filter-row {
-            margin: 15px 0;
+   
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
@@ -1626,7 +1530,7 @@ body::after {
             background-color: #f1f3f4;
             border: none;
             border-radius: 25px;
-            padding: 10px 18px;
+            padding: 8px 14px;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
@@ -1698,17 +1602,7 @@ body::after {
         }
 
         /* Dashboard Card */
-        
-
-        .card-header-leads {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
+     
 
         .card-title-leads {
             font-size: 24px;
@@ -1762,44 +1656,65 @@ body::after {
         }
 
         .enhanced-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 14px;
-        }
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* This creates the gap between rows */
+    font-size: 14px;
+}
 
-        .enhanced-table th {
-            background: #f8f9fa;
-            color: var(--text-dark);
-            font-weight: 600;
-            padding: 16px 12px;
-            text-align: left;
-            border-bottom: 2px solid #dee2e6;
-            white-space: nowrap;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+.enhanced-table th {
+    /* background: #f8f9fa; */
+    color: var(--text-dark);
+    font-weight: 600;
+    padding: 0 12px;
+    text-align: left;
+    border-bottom: none;
+    white-space: nowrap;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
 
-        .enhanced-table td {
-            padding: 16px 12px;
-            border-bottom: 1px solid #eee;
-            vertical-align: middle;
-        }
+.enhanced-table td {
+    padding: 12px 10px;
+    border: none;
+    vertical-align: middle;
+    background: #fff;
+}
 
-        .enhanced-table tbody tr {
-            transition: var(--transition);
-        }
+/* First cell rounded left */
+.enhanced-table tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
 
-        .enhanced-table tbody tr:hover {
-            background-color: rgba(26, 115, 232, 0.02);
-        }
+/* Last cell rounded right */
+.enhanced-table tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.enhanced-table tbody tr {
+    transition: var(--transition);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.enhanced-table tbody tr:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+/* Remove the background color from the table body */
+.enhanced-table tbody {
+    background-color: transparent;
+}
 
         /* Lead Profile Cell */
         .lead-profile {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
 
         .lead-avatar {
             width: 40px;
@@ -1809,11 +1724,11 @@ body::after {
         }
 
         .lead-info h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--text-dark);
-            margin: 0 0 2px 0;
-        }
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 2px 0;
+}
 
         .lead-info .lead-id {
             font-size: 11px;
@@ -1874,14 +1789,14 @@ body::after {
 
         /* Status Badges */
         .status-badge {
-            display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 11px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
 
         .status-badge.new {
             background: rgba(59, 130, 246, 0.2);
@@ -1910,11 +1825,12 @@ body::after {
 
         /* Action Buttons */
         .action-buttons-leads {
-            display: flex;
-            gap: 6px;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: nowrap;
+    padding: 4px 0;
+}
 
         .action-btn {
             width: 32px;
@@ -1986,19 +1902,18 @@ body::after {
         }
 
         /* Dropdown Buttons */
-        .dropdown-btn {
-            background: rgba(107, 114, 128, 0.1);
-            color: #6b7280;
-            border: 1px solid #d1d5db;
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: var(--transition);
-            position: relative;
-            min-width: 100px;
-            text-align: left;
-        }
+.dropdown-btn {
+    background: rgba(107, 114, 128, 0.1);
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: var(--transition);
+    min-width: 120px;
+    width: 100%;
+}
 
         .dropdown-btn:hover {
             background: rgba(107, 114, 128, 0.2);
@@ -2123,7 +2038,7 @@ body::after {
         }
         /* DataTables Pagination Styling */
 .dataTables_wrapper {
-    margin-top: 20px;
+    margin-top: 5px;
 }
 
 .dataTables_wrapper .dataTables_paginate {
@@ -2322,5 +2237,646 @@ body::after {
         padding: 6px 10px;
         font-size: 12px;
         min-width: 1.2em;
+    }
+}
+
+/* Filter Header Styles */
+.filter-header {
+    position: relative;
+    cursor: pointer;
+}
+
+.filter-header-btn {
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: none;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+}
+
+.filter-header-btn:hover {
+    background-color: rgba(26, 115, 232, 0.1);
+    border-radius: 4px;
+}
+
+.filter-header-btn i {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.filter-header.active .filter-header-btn i {
+    transform: rotate(180deg);
+}
+
+.filter-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    width: 250px;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+}
+
+.filter-header.active .filter-dropdown {
+    display: block;
+}
+
+.filter-search {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.filter-search input {
+    width: 100%;
+    padding: 8px 30px 8px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.filter-search i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+}
+
+.filter-options {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+}
+
+.filter-options label {
+    display: block;
+    padding: 6px 0;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.filter-options input {
+    margin-right: 8px;
+}
+
+.sort-options {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.sort-btn {
+    flex: 1;
+    padding: 6px 8px;
+    font-size: 12px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.sort-btn:hover {
+    background: #e0e0e0;
+}
+
+.sort-btn.active {
+    background: #1a73e8;
+    color: white;
+    border-color: #1a73e8;
+}
+
+.date-range {
+    display: grid;
+    gap: 8px;
+}
+
+.date-range label {
+    font-size: 12px;
+    display: grid;
+    gap: 4px;
+}
+
+.date-range input {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+/* Add this to your CSS */
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.add-button{
+  padding: 5px;
+    border-radius: 10px;
+}
+
+
+.search-and-button {
+    flex: 1;
+    min-width: 250px;
+    /* padding: 10px 10px; */
+    border-radius: 10px;
+}
+
+.dataTables_filter {
+    float: none !important;
+    margin-bottom: 0 !important;
+}
+
+.dataTables_filter input {
+    width: 100% !important;
+    margin-left: 0 !important;
+}
+
+.header-actions-leads {
+    margin-left: auto;
+}
+
+/* Make the table header row align with the search/button row */
+.dataTables_wrapper .dataTables_filter {
+    padding-top: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .top-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .search-and-button, 
+    .add-button {
+        width: 100%;
+    }
+    
+    .header-actions-leads {
+        margin-left: 0;
+        margin-top: 1rem;
+    }
+}
+
+.filter-panel {
+    position: absolute;
+    top: 100%;
+    left: 20px;
+    width: calc(100% - 40px);
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 15px;
+    z-index: 1000;
+    display: none;
+    margin-top: 5px;
+}
+
+.filter-panel.open {
+    display: block;
+}
+
+.filter-panel-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+}
+
+.filter-group h4 {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #3c4043;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.filter-option input {
+    margin-right: 8px;
+}
+
+.filter-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.filter-apply {
+    background: #1a73e8;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-reset {
+    background: transparent;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .enhanced-table {
+    border-spacing: 0 15px;
+  }
+  
+  .enhanced-table thead {
+    display: none;
+  }
+  
+  .enhanced-table tbody tr {
+    display: block;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: relative;
+  }
+  
+  .enhanced-table td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border: none;
+    background: transparent !important;
+  }
+  
+  .enhanced-table td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--text-gray);
+    margin-right: 15px;
+    font-size: 13px;
+    flex: 1;
+  }
+  
+  .enhanced-table td > div {
+    flex: 2;
+    text-align: right;
+  }
+  
+  /* Specific styling for certain cells */
+  .enhanced-table td:first-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-top: 15px;
+  }
+  
+  .enhanced-table td:last-child {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-bottom: 15px;
+  }
+  
+  /* Hide empty cells */
+  .enhanced-table td:empty {
+    display: none;
+  }
+  
+  /* Action buttons styling */
+  .action-buttons-leads {
+    justify-content: flex-end;
+  }
+  
+  /* Status dropdown styling */
+  .dropdown-btn {
+    width: auto;
+    min-width: 150px;
+  }
+}
+
+/* Leads Header Specific Styles */
+.header.leads-header {
+    
+    padding-bottom: 0.1rem;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.header.leads-header .header-left {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.header.leads-header .page-title.leads-title {
+    font-size: 1.5rem;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.header.leads-header .tab-row {
+    display: flex;
+    gap: 0.5rem;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+/* Adjust tab button sizes in header */
+.header.leads-header .tab-btn {
+            background-color: #f1f3f4;
+            border: none;
+            border-radius: 25px;
+            padding: 8px 14px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.header.leads-header .tab-btn .count {
+    padding: 1px 6px;
+    font-size: 11px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header.leads-header .header-left {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .header.leads-header .tab-row {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+    
+    .header.leads-header .tab-btn {
+        flex-shrink: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Add this CSS to your existing stylesheet */
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .table-container {
+        overflow-x: visible;
+    }
+    
+    .enhanced-table,
+    .enhanced-table thead,
+    .enhanced-table tbody,
+    .enhanced-table th,
+    .enhanced-table td,
+    .enhanced-table tr {
+        display: block;
+    }
+    
+    .enhanced-table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+    
+    .enhanced-table tr {
+        background: white;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        padding: 15px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+    }
+    
+    .enhanced-table td {
+        border: none;
+        position: relative;
+        padding: 8px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .enhanced-table td:last-child {
+        border-bottom: none;
+    }
+    
+    .enhanced-table td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 35%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #495057;
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    .enhanced-table td:nth-child(1):before { content: "Lead"; }
+    .enhanced-table td:nth-child(2):before { content: "ID"; }
+    .enhanced-table td:nth-child(3):before { content: "Contact"; }
+    .enhanced-table td:nth-child(4):before { content: "Status"; }
+    .enhanced-table td:nth-child(5):before { content: "Source"; }
+    .enhanced-table td:nth-child(6):before { content: "Notes"; }
+    .enhanced-table td:nth-child(7):before { content: "Last Contact"; }
+    .enhanced-table td:nth-child(8):before { content: "Update Status"; }
+    .enhanced-table td:nth-child(9):before { content: "Actions"; }
+    
+    .enhanced-table td > * {
+        margin-left: 38%;
+        display: block;
+    }
+    
+    /* Mobile specific adjustments */
+    .lead-profile {
+        margin-left: 0 !important;
+    }
+    
+    .lead-profile .notes-section {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .created-info {
+        font-size: 11px;
+        color: #666;
+    }
+    
+    .contact-info {
+        margin-left: 0 !important;
+    }
+    
+    .contact-info div {
+        margin-bottom: 5px;
+    }
+    
+    .action-buttons-leads {
+        margin-left: 0 !important;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
+    .action-btn {
+        flex: 1;
+        min-width: 40px;
+        justify-content: center;
+        padding: 8px;
+    }
+    
+    .dropdown-btn {
+        margin-left: 0 !important;
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+    }
+    
+    .time-display {
+        margin-left: 0 !important;
+    }
+    
+    .notes-section {
+        margin-left: 0 !important;
+    }
+    
+    .lead-id-section {
+        margin-left: 0 !important;
+        font-weight: 600;
+        color: #007bff;
+    }
+    
+    /* Filter row mobile adjustments */
+    .filter-row {
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .filter-row::-webkit-scrollbar {
+        height: 6px;
+    }
+    
+    .filter-row::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 3px;
+    }
+    
+    .filter-row::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+    
+    /* DataTables mobile adjustments */
+    .dataTables_wrapper .dataTables_filter {
+        float: none !important;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+    
+    .dataTables_wrapper .dataTables_filter input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-left: 0;
+    }
+    
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_info,
+    .dataTables_wrapper .dataTables_paginate {
+        float: none !important;
+        text-align: center;
+        margin: 10px 0;
+    }
+    
+    .dataTables_wrapper .dataTables_paginate .paginate_button {
+        padding: 8px 12px;
+        margin: 0 2px;
+    }
+    
+    /* Mobile card hover effect */
+    .enhanced-table tr:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+    }
+}
+
+/* Tablet adjustments */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .enhanced-table {
+        font-size: 13px;
+    }
+    
+    .enhanced-table th,
+    .enhanced-table td {
+        padding: 12px 8px;
+    }
+    
+    .filter-row {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 8px 12px;
+        font-size: 13px;
     }
 }
