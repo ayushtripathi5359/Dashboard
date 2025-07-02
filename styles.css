@@ -1,4 +1,3 @@
-
 :root {
       --primary-teal: #2a8c90;
       --primary-white: #f1f4f3;
@@ -10,7 +9,7 @@
       --card-bg: transparent;
       --text-dark: #020202; /* Darker for better contrast */
       --text-header: #1a1a1a;
-      --text-gray: #555;
+      --text-gray: #302b2b;
       --text-light: #9ca3af;
       --border-color: rgba(0, 0, 0, 0.1);
       --shadow: 0 6px 10px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -234,7 +233,9 @@ body::after {
     .nav-item {
       margin-bottom: 0.25rem;
     }
-
+.standings-table-container {
+  overflow-x: auto;
+}
     .nav-link {
       display: flex;
       align-items: center;
@@ -469,13 +470,15 @@ body::after {
     /* Main Content */
     .main-content {
       margin-left: var(--sidebar-width);
-      padding: 2rem;
+      padding: 0 2rem;
       min-height: 100vh;
       transition: var(--transition);
     }
 
     .leads-main-content{
-      padding-top: 0.5rem;
+      padding-top: 0rem;
+      padding-left: 1rem;
+      padding-right: 0.2rem;
     }
     .main-content.expanded {
       margin-left: var(--sidebar-collapsed-width);
@@ -737,7 +740,7 @@ body::after {
   padding: 0.5rem;
   color: var(--text-gray);
   font-weight: 500;
-  border-bottom: 1px solid whipe;
+  border-bottom: 1px solid white;
 }
 
 .standings-table td, .stats-table td {
@@ -1045,9 +1048,7 @@ body::after {
 }
 
 
-.standings-table-container {
-  overflow-x: auto;
-}
+
 
 .standings-table {
   width: 100%;
@@ -1342,6 +1343,9 @@ body::after {
   .header-left{
     display: none;
   }
+  .header.leads-header .header-left {
+    display: block;
+  }
   .user-info{
     display: none;
   }
@@ -1521,7 +1525,7 @@ body::after {
 .tab-row, .filter-row {
    
             display: flex;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 10px;
             align-items: center;
         }
@@ -1676,7 +1680,7 @@ body::after {
 }
 
 .enhanced-table td {
-    padding: 12px 10px;
+    padding: 4px 10px;
     border: none;
     vertical-align: middle;
     background: #fff;
@@ -1687,6 +1691,7 @@ body::after {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
+
 
 /* Last cell rounded right */
 .enhanced-table tr td:last-child {
@@ -1700,8 +1705,9 @@ body::after {
 }
 
 .enhanced-table tbody tr:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transform: translateY(-1px);
+    background: #f1f5f9;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* Remove the background color from the table body */
@@ -1764,9 +1770,9 @@ body::after {
 
         .notes-section .created-info {
             color: var(--text-gray);
-            font-size: 11px;
+            font-size: 10px;
             margin-bottom: 6px;
-            width: 102px;
+            width: 109px;
 
         }
 
@@ -1775,11 +1781,11 @@ body::after {
             text-decoration: none;
             font-weight: 500;
             font-size: 11px;
-            padding: 2px 8px;
+            padding: 4px 8px;
             border-radius: 12px;
             border: 1px solid #1a73e8;
             transition: var(--transition);
-            display: inline-block;
+            display: ruby;
         }
 
         .notes-section .view-remark:hover {
@@ -1900,11 +1906,13 @@ body::after {
             color: white;
             transform: translateY(-1px);
         }
-
+.table-container::-webkit-scrollbar {
+    display: none;
+}
         /* Dropdown Buttons */
 .dropdown-btn {
     background: rgba(107, 114, 128, 0.1);
-    color: #6b7280;
+    color: var(--text-gray);
     border: 1px solid #d1d5db;
     border-radius: 6px;
     padding: 8px 12px;
@@ -1923,7 +1931,7 @@ body::after {
         /* Source Tags */
         .source-tag {
             background: rgba(107, 114, 128, 0.1);
-            color: #6b7280;
+            color: var(--text-gray);
             padding: 4px 8px;
             border-radius: 12px;
             font-size: 11px;
@@ -2005,7 +2013,7 @@ body::after {
 
         @media (max-width: 768px) {
             .tab-row, .filter-row {
-                margin: 10px 0;
+                margin: 4px 0;
                 gap: 8px;
             }
             
@@ -2038,13 +2046,19 @@ body::after {
         }
         /* DataTables Pagination Styling */
 .dataTables_wrapper {
-    margin-top: 5px;
+    
 }
-
+.dataTables_paginate {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
 .dataTables_wrapper .dataTables_paginate {
     float: right;
     text-align: right;
     padding-top: 0.25em;
+    padding-bottom: 1.5rem;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -2107,13 +2121,18 @@ body::after {
     font-weight: 600;
     padding: 8px 16px;
 }
-
+.dataTables_info {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
 /* DataTables Info Styling */
 .dataTables_wrapper .dataTables_info {
     clear: both;
     float: left;
     padding-top: 0.755em;
-    color: #6b7280;
+    color: var(--text-gray);
     font-size: 13px;
     font-weight: 500;
 }
@@ -2121,7 +2140,6 @@ body::after {
 /* DataTables Length Menu Styling */
 .dataTables_wrapper .dataTables_length {
     float: left;
-    margin-bottom: 15px;
 }
 
 .dataTables_wrapper .dataTables_length select {
@@ -2149,7 +2167,7 @@ body::after {
 
 .dataTables_wrapper .dataTables_length label {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--text-gray);
     font-weight: 500;
 }
 
@@ -2162,7 +2180,7 @@ body::after {
 
 .dataTables_wrapper .dataTables_filter label {
     font-size: 13px;
-    color: #6b7280;
+    color: var(--text-gray);
     font-weight: 500;
 }
 
@@ -2191,11 +2209,12 @@ body::after {
 
 /* Bottom Section Styling */
 .dataTables_wrapper .bottom {
-    padding: 20px 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #eee;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 0 60px 0;
     
 }
 
@@ -2230,7 +2249,7 @@ body::after {
     
     .dataTables_wrapper .bottom {
         flex-direction: column;
-        gap: 15px;
+        
     }
     
     .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -2244,10 +2263,11 @@ body::after {
 .filter-header {
     position: relative;
     cursor: pointer;
+    z-index: 10; 
 }
 
 .filter-header-btn {
-    background: #f8f9fa;
+    background: #fefefe;
     border-radius: 4px;
     border: none;
     font-weight: 600;
@@ -2278,7 +2298,7 @@ body::after {
 }
 
 .filter-dropdown {
-    position: absolute;
+    position: absolute ;
     top: 100%;
     left: 0;
     background: white;
@@ -2293,7 +2313,8 @@ body::after {
 }
 
 .filter-header.active .filter-dropdown {
-    display: block;
+    display: block !important;
+    z-index: 999;
 }
 
 .filter-search {
@@ -2383,21 +2404,189 @@ body::after {
     font-size: 12px;
 }
 
+/* Expand/collapse button styles */
 
+.expand-row-btn {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+.expand-row-btn:focus,
+.expand-row-btn:hover {
+    background: #1557b0;
+}
+.details-row {
+    display: none;
+    background: #f8f9fa;
+}
+.details-row.open {
+    display: table-row;
+}
+.details-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem;
+    padding: 0.1rem 0;
+}
+.details-block {
+    flex: 1 1 200px;
+    min-width: 140px;
+    margin-bottom: 0.5rem;
+}
+@media (max-width: 900px) {
+    .expand-btn-cell {
+        display: table-cell !important;
+        width: 40px;
+        padding-right: 0;
+        vertical-align: top;
+    }
+    .mobile-hide {
+        display: none !important;
+    }
+    .details-row {
+        display: none;
+    }
+}
 
+@media (min-width: 901px) {
+    .expand-btn-cell {
+        display: table-cell !important;
+    }
+    .expand-row-btn {
+        display: flex !important;
+    }
+    .details-row {
+        display: none;
+    }
+    .details-row.open {
+        display: table-row;
+    }
+}
+@media (min-width: 901px) {
+    .expand-btn-cell {
+        display: table-cell !important;
+    }
+}
+.filter-header {
+    position: relative;
+    z-index: 10;
+}
 
-
-
-
-
-
-/* Add this to your CSS */
 .top-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+    justify-content: space-between;
+    
+}
+.add-lead-button {
+  flex-shrink: 0;
+}
+
+.search-container {
+    flex: 1;
+  min-width: 200px;
+  max-width: 100%;
+}
+
+.leads-count {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+}
+
+.leads-count span {
+    font-weight: 700;
+    color: #1a73e8;
+}
+
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 8px 12px;
+    margin: 0 2px;
+}
+
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+    .top-container {
+        flex-direction: row;
+    align-items: stretch;
+    }
+    
+    .search-container {
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .action-button {
+        width: 100%;
+    }
+    .bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .dataTables_info {
+    margin-bottom: 10px;
+  }
+}
+
+
+@media (max-width: 900px) {
+    .mobile-hide {
+        display: none !important;
+    }
+    
+    /* Show the Add New Lead button in a better position on mobile */
+    .header-actions-leads {
+        order: -1;
+        margin-bottom: 15px;
+    }
+}
+
+/* Ensure the table is properly responsive */
+.table-container {
+    position: relative;
+    overflow-x: auto;
+    overflow-y: auto;
+    width: 100%;
+    max-height: calc(100vh - 145px); 
+    min-height: calc(100vh - 40vh);
+    
+}
+
+/* Adjust column widths for better mobile display */
+@media (max-width: 768px) {
+    .enhanced-table td {
+        white-space: nowrap;
+    }
+    
+    .lead-info h4 {
+        font-size: 14px;
+    }
+    
+    .lead-id-section {
+        font-size: 12px;
+    }
+}
+
+.top-container {
+    display: flex;
+  flex-wrap: nowrap;
+  gap: 15px;
+  align-items: center;
+  width: 100%;
 }
 .add-button{
   padding: 5px;
@@ -2432,22 +2621,6 @@ body::after {
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
-    .top-container {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .search-and-button, 
-    .add-button {
-        width: 100%;
-    }
-    
-    .header-actions-leads {
-        margin-left: 0;
-        margin-top: 1rem;
-    }
-}
 
 .filter-panel {
     position: absolute;
@@ -2521,76 +2694,7 @@ body::after {
     cursor: pointer;
 }
 
-@media (max-width: 768px) {
-  .enhanced-table {
-    border-spacing: 0 15px;
-  }
-  
-  .enhanced-table thead {
-    display: none;
-  }
-  
-  .enhanced-table tbody tr {
-    display: block;
-    background: white;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    position: relative;
-  }
-  
-  .enhanced-table td {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border: none;
-    background: transparent !important;
-  }
-  
-  .enhanced-table td:before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: var(--text-gray);
-    margin-right: 15px;
-    font-size: 13px;
-    flex: 1;
-  }
-  
-  .enhanced-table td > div {
-    flex: 2;
-    text-align: right;
-  }
-  
-  /* Specific styling for certain cells */
-  .enhanced-table td:first-child {
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    padding-top: 15px;
-  }
-  
-  .enhanced-table td:last-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    padding-bottom: 15px;
-  }
-  
-  /* Hide empty cells */
-  .enhanced-table td:empty {
-    display: none;
-  }
-  
-  /* Action buttons styling */
-  .action-buttons-leads {
-    justify-content: flex-end;
-  }
-  
-  /* Status dropdown styling */
-  .dropdown-btn {
-    width: auto;
-    min-width: 150px;
-  }
-}
+
 
 /* Leads Header Specific Styles */
 .header.leads-header {
@@ -2663,220 +2767,650 @@ body::after {
 
 
 
+/* Floating Add Button */
+.floating-add-btn {
+    position: fixed;
+    bottom: 50px;
+    right: 40px;
+    z-index: 100;
+}
+
+.floating-add-btn .action-button {
+    background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(26, 115, 232, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.floating-add-btn .action-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(26, 115, 232, 0.4);
+}
+
+.floating-add-btn .action-button:active {
+    transform: translateY(1px);
+}
+
+/* Animation for the button */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+.floating-add-btn .action-button:hover i {
+    animation: float 1.5s ease-in-out infinite;
+}
+
+
+/* DataTables controls container */
+.dataTables_wrapper .top-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 15px;
+    align-items: center;
+    
+}
+
+/* Left controls container */
+.dataTables_wrapper .left-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Right controls (search) container */
+.dataTables_wrapper .right-controls {
+    flex-grow: 1;
+    min-width: 200px;
+}
+
+/* DataTables buttons */
+.dt-button {
+    background: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 13px;
+    color: #3c4043;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.dt-button:hover {
+    background: #e8eaed;
+    border-color: #bdc1c6;
+}
+
+.dt-button, .dt-buttons {
+    display: inline-flex !important;
+    z-index: 20 !important;
+    position: relative;
+    
+}
 
 
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .dataTables_wrapper .left-controls {
+        order: 1;
+        width: 100%;
+        justify-content: space-between;
+    }
+    .dt-button, .dt-buttons {
+    display: none !important;
+    
+}
+.dataTables_length{
+  margin-left: -18px;
+  
+}
+
+    
+    .dataTables_wrapper .right-controls {
+        order: 2;
+        width: 100%;
+    }
+}
 
 
-
-
-
-/* Add this CSS to your existing stylesheet */
-
-/* Mobile Responsive Styles */
-@media screen and (max-width: 768px) {
-    .table-container {
-        overflow-x: visible;
+/* Hide expand button and details on desktop */
+@media (min-width: 1197px) {
+    .expand-btn-cell {
+        display: none !important;
     }
     
-    .enhanced-table,
-    .enhanced-table thead,
-    .enhanced-table tbody,
+    .details-row {
+        display: none !important;
+    }
+    
+.lead-profile-cell {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+}
+
+/* Show expand button and details on mobile */
+@media (max-width: 900px) {
+    .expand-btn-cell {
+        display: table-cell !important;
+        width: 40px;
+        padding-right: 0;
+        vertical-align: top;
+    }
+    
+    .mobile-hide {
+        display: none !important;
+    }
+    
+    .details-row {
+        display: none;
+    }
+    
+    .details-row.open {
+        display: table-row;
+    }
+}
+
+
+/* Responsive breakpoints for column visibility */
+
+/* Large screens (default) - all columns visible */
+@media (min-width: 1200px) {
     .enhanced-table th,
-    .enhanced-table td,
-    .enhanced-table tr {
-        display: block;
-    }
-    
-    .enhanced-table thead tr {
-        position: absolute;
-        top: -9999px;
-        left: -9999px;
-    }
-    
-    .enhanced-table tr {
-        background: white;
-        border: 1px solid #e0e0e0;
-        border-radius: 12px;
-        margin-bottom: 15px;
-        padding: 15px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        position: relative;
-    }
-    
     .enhanced-table td {
-        border: none;
-        position: relative;
-        padding: 8px 0;
-        border-bottom: 1px solid #f0f0f0;
+        display: table-cell;
+    }
+}
+
+/* Medium-large screens - hide actions and update status columns */
+@media (max-width: 1199px) and (min-width: 992px) {
+    .enhanced-table th:nth-child(10), /* Actions column */
+    .enhanced-table td:nth-child(10) {
+        display: none;
+    }
+}
+
+/* Medium screens - hide notes, last contact, update status, and actions */
+@media (max-width: 991px) and (min-width: 768px) {
+    .enhanced-table th:nth-child(7), /* Notes column */
+    .enhanced-table td:nth-child(7),
+    .enhanced-table th:nth-child(8), /* Last contact column */
+    .enhanced-table td:nth-child(8),
+    .enhanced-table th:nth-child(9), /* Update status column */
+    .enhanced-table td:nth-child(9),
+    .enhanced-table th:nth-child(10), /* Actions column */
+    .enhanced-table td:nth-child(10) {
+        display: none;
+    }
+}
+
+/* Small screens - hide source, notes, last contact, update status, and actions */
+@media (max-width: 767px) and (min-width: 576px) {
+    .enhanced-table th:nth-child(6), /* Source column */
+    .enhanced-table td:nth-child(6),
+    .enhanced-table th:nth-child(7), /* Notes column */
+    .enhanced-table td:nth-child(7),
+    .enhanced-table th:nth-child(8), /* Last contact column */
+    .enhanced-table td:nth-child(8),
+    .enhanced-table th:nth-child(9), /* Update status column */
+    .enhanced-table td:nth-child(9),
+    .enhanced-table th:nth-child(10), /* Actions column */
+    .enhanced-table td:nth-child(10) {
+        display: none;
+    }
+}
+
+/* Extra small screens - hide status, source, notes, last contact, update status, and actions */
+@media (max-width: 575px) {
+    .enhanced-table th:nth-child(5), /* Status column */
+    .enhanced-table td:nth-child(5),
+    .enhanced-table th:nth-child(6), /* Source column */
+    .enhanced-table td:nth-child(6),
+    .enhanced-table th:nth-child(7), /* Notes column */
+    .enhanced-table td:nth-child(7),
+    .enhanced-table th:nth-child(8), /* Last contact column */
+    .enhanced-table td:nth-child(8),
+    .enhanced-table th:nth-child(9), /* Update status column */
+    .enhanced-table td:nth-child(9),
+    .enhanced-table th:nth-child(10), /* Actions column */
+    .enhanced-table td:nth-child(10) {
+        display: none;
     }
     
-    .enhanced-table td:last-child {
+    /* Make the table more compact on mobile */
+    .enhanced-table {
+        font-size: 14px;
+    }
+    
+    .enhanced-table th,
+    .enhanced-table td {
+        padding: 8px 4px;
+    }
+}
+
+/* Very small screens - hide contact info as well, only show expand, lead name, and ID */
+@media (max-width: 480px) {
+    .enhanced-table th:nth-child(4), /* Contact column */
+    .enhanced-table td:nth-child(4),
+    .enhanced-table th:nth-child(5), /* Status column */
+    .enhanced-table td:nth-child(5),
+    .enhanced-table th:nth-child(6), /* Source column */
+    .enhanced-table td:nth-child(6),
+    .enhanced-table th:nth-child(7), /* Notes column */
+    .enhanced-table td:nth-child(7),
+    .enhanced-table th:nth-child(8), /* Last contact column */
+    .enhanced-table td:nth-child(8),
+    .enhanced-table th:nth-child(9), /* Update status column */
+    .enhanced-table td:nth-child(9),
+    .enhanced-table th:nth-child(10), /* Actions column */
+    .enhanced-table td:nth-child(10) {
+        display: none;
+    }
+    
+    /* Adjust remaining columns for better mobile display */
+    .enhanced-table th:nth-child(2), /* Lead name column */
+    .enhanced-table td:nth-child(2) {
+        width: 60%;
+    }
+    
+    .enhanced-table th:nth-child(3), /* ID column */
+    .enhanced-table td:nth-child(3) {
+        width: 25%;
+    }
+    
+    .enhanced-table th:nth-child(1), /* Expand button column */
+    .enhanced-table td:nth-child(1) {
+        width: 15%;
+    }
+}
+
+/* Enhanced details content styling for better mobile experience */
+@media (max-width: 767px) {
+    .details-content {
+        padding: 2px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        
+    }
+    
+    .details-block {
+        padding: 2px 0;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .details-block:last-child {
         border-bottom: none;
+        margin-bottom: 0;
     }
     
-    .enhanced-table td:before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 35%;
-        padding-right: 10px;
-        white-space: nowrap;
-        font-weight: 600;
+    .details-block b {
+        display: block;
         color: #495057;
         font-size: 12px;
         text-transform: uppercase;
         letter-spacing: 0.5px;
+        margin-bottom: 4px;
     }
     
-    .enhanced-table td:nth-child(1):before { content: "Lead"; }
-    .enhanced-table td:nth-child(2):before { content: "ID"; }
-    .enhanced-table td:nth-child(3):before { content: "Contact"; }
-    .enhanced-table td:nth-child(4):before { content: "Status"; }
-    .enhanced-table td:nth-child(5):before { content: "Source"; }
-    .enhanced-table td:nth-child(6):before { content: "Notes"; }
-    .enhanced-table td:nth-child(7):before { content: "Last Contact"; }
-    .enhanced-table td:nth-child(8):before { content: "Update Status"; }
-    .enhanced-table td:nth-child(9):before { content: "Actions"; }
-    
-    .enhanced-table td > * {
-        margin-left: 38%;
-        display: block;
-    }
-    
-    /* Mobile specific adjustments */
-    .lead-profile {
-        margin-left: 0 !important;
-    }
-    
-    .lead-profile .notes-section {
+    /* Make action buttons stack vertically on mobile */
+    .details-block .action-buttons-leads {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .created-info {
-        font-size: 11px;
-        color: #666;
-    }
-    
-    .contact-info {
-        margin-left: 0 !important;
-    }
-    
-    .contact-info div {
-        margin-bottom: 5px;
-    }
-    
-    .action-buttons-leads {
-        margin-left: 0 !important;
-        display: flex;
-        gap: 8px;
         flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
     }
     
-    .action-btn {
+    .details-block .action-btn {
         flex: 1;
-        min-width: 40px;
+        min-width: calc(50% - 4px);
         justify-content: center;
-        padding: 8px;
-    }
-    
-    .dropdown-btn {
-        margin-left: 0 !important;
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-    }
-    
-    .time-display {
-        margin-left: 0 !important;
-    }
-    
-    .notes-section {
-        margin-left: 0 !important;
-    }
-    
-    .lead-id-section {
-        margin-left: 0 !important;
-        font-weight: 600;
-        color: #007bff;
-    }
-    
-    /* Filter row mobile adjustments */
-    .filter-row {
-        overflow-x: auto;
-        padding-bottom: 10px;
-    }
-    
-    .filter-row::-webkit-scrollbar {
-        height: 6px;
-    }
-    
-    .filter-row::-webkit-scrollbar-track {
-        background: #f1f1f1;
-        border-radius: 3px;
-    }
-    
-    .filter-row::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 3px;
-    }
-    
-    /* DataTables mobile adjustments */
-    .dataTables_wrapper .dataTables_filter {
-        float: none !important;
-        text-align: left;
-        margin-bottom: 15px;
-    }
-    
-    .dataTables_wrapper .dataTables_filter input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        margin-left: 0;
-    }
-    
-    .dataTables_wrapper .dataTables_length,
-    .dataTables_wrapper .dataTables_info,
-    .dataTables_wrapper .dataTables_paginate {
-        float: none !important;
-        text-align: center;
-        margin: 10px 0;
-    }
-    
-    .dataTables_wrapper .dataTables_paginate .paginate_button {
         padding: 8px 12px;
-        margin: 0 2px;
-    }
-    
-    /* Mobile card hover effect */
-    .enhanced-table tr:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
+        font-size: 12px;
     }
 }
 
-/* Tablet adjustments */
-@media screen and (max-width: 1024px) and (min-width: 769px) {
-    .enhanced-table {
-        font-size: 13px;
+/* Ensure expand button is always visible and properly sized */
+@media (max-width: 575px) {
+    .expand-btn-cell {
+        width: 40px !important;
+        min-width: 40px !important;
+        text-align: center;
     }
     
-    .enhanced-table th,
-    .enhanced-table td {
-        padding: 12px 8px;
+    .expand-row-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+    }
+}
+
+.enhanced-table thead th {
+    background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+    color: #42464a;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 12px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 2px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add these styles to your existing CSS */
+
+/* Enhanced container styling */
+.container {
+  padding: 0;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+/* Bolder header styling */
+
+
+
+
+.filter-btn {
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-btn.active {
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+  transform: translateY(-1px);
+}
+
+/* More substantial table styling */
+
+
+
+/* More prominent lead profile */
+.lead-profile h4 {
+  font-weight: 700;
+  font-size: 15px;
+  color: #111827;
+}
+
+.lead-id {
+  font-weight: 600;
+  color: var(--text-gray);
+}
+
+/* Bolder status badges */
+.status-badge {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* More substantial action buttons */
+.action-buttons-leads {
+  gap: 6px;
+}
+
+.action-btn {
+  width: 34px;
+  height: 34px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Enhanced dropdown */
+.dropdown-btn {
+  font-weight: 600;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* More prominent floating button */
+.floating-add-btn .action-button {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 16px 28px;
+  box-shadow: 0 8px 24px rgba(26, 115, 232, 0.3);
+}
+
+/* Bolder filter dropdowns */
+.filter-dropdown {
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.filter-header-btn {
+  font-weight: 700;
+  padding: 10px 15px;
+}
+
+/* Enhanced pagination */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  font-weight: 600;
+  padding: 8px 14px;
+}
+
+/* More substantial table borders */
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .filter-row {
+    display: flex;
+            flex-wrap: nowrap;
+            overflow-x: auto;
+  }
+
+  .filter-row::-webkit-scrollbar {
+    display: none;
+}
+
+  
+  .filter-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  
+ 
+  
+  .action-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+/* Add subtle animation to status changes */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.status-badge.changed {
+  animation: pulse 0.5s ease;
+}
+
+/* Enhanced hover states */
+.enhanced-table tbody tr:hover td {
+  background: #f3f4f6;
+}
+
+/* More prominent source tags */
+.source-tag {
+  font-weight: 600;
+  padding: 5px 10px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    padding: 8px 0;
+    border-top: 1px solid #e5e7eb;
+}
+
+.mobile-nav-btn {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 12px;
+    padding: 8px 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.mobile-nav-btn i {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.mobile-nav-btn:hover {
+    color: #1a73e8;
+}
+
+.mobile-nav-btn.add-btn-mobile {
+    color: #fbfbfc;
+    background: #1a73e8;
+    border-radius: 50px;
+    font-size: large;
+}
+
+.mobile-nav-btn.add-btn-mobile:hover {
+    color: #fbfbfc;
+    background: #0262e1 ;
+}
+
+/* Show mobile nav only on mobile */
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
     }
     
-    .filter-row {
-        gap: 8px;
+    /* Hide the floating button on mobile since we have the bottom nav */
+    .floating-add-btn {
+        display: none;
     }
+    .dataTables_wrapper .bottom-container {
+    padding-bottom: 40px;
+    }
+}
+
+/* Center the pagination controls */
+.dataTables_wrapper .dataTables_paginate {
+    float: none;
+    text-align: center;
+    width: 100%;
+}
+
+/* Adjust the bottom container layout */
+.dataTables_wrapper .bottom-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     
-    .filter-btn {
-        padding: 8px 12px;
-        font-size: 13px;
-    }
+}
+
+/* If you want to keep the info text above the pagination */
+.dataTables_wrapper .dataTables_info {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* For the pagination buttons themselves */
+.dataTables_paginate .paginate_button {
+    margin: 0 5px;
+}
+
+.expand-row-btn i {
+    transition: transform 0.2s ease;
+}
+
+.expand-row-btn .fa-minus {
+    transform: rotate(180deg);
+}
+
+.details-row {
+    background-color: #f8f9fa;
+}
+
+.details-content {
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.details-block {
+    flex: 1 1 200px;
+    min-width: 0;
+}
+
+.details-block strong {
+    display: block;
+    margin-bottom: 5px;
+    color: #3c4043;
+    font-size: 13px;
 }

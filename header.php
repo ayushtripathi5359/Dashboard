@@ -93,22 +93,22 @@ $isLeadsPage = $currentPage == 'leads.php';
         </h1>
         <?php if ($isLeadsPage): ?>
             <div class="tab-row">
-                <button class="tab-btn active">
+                <button class="filter-btn active">
                     My Leads <span class="count">46</span>
                 </button>
-                <button class="tab-btn booked">
+                <button class="filter-btn booked">
                     Booked <span class="count">0</span>
                 </button>
-                <button class="tab-btn">
+                <button class="filter-btn">
                     Today FollowUp's <span class="count">0</span>
                 </button>
-                <button class="tab-btn dropped">
+                <button class="filter-btn dropped">
                     Dropped <span class="count">10</span>
                 </button>
-                <button class="tab-btn ads">
+                <button class="filter-btn ads">
                     Ads <span class="count">22</span>
                 </button>
-                <button class="tab-btn">
+                <button class="filter-btn">
                     SHI-D <span class="count">30</span>
                 </button>
             </div>
