@@ -24,7 +24,14 @@ $isLeadsPage = $currentPage == 'leads.php';
             <span class="nav-text">Dashboard</span>
           </a>
         </li>
-        
+        <li class="nav-item">
+          <a href="eoi.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'eoi.php') ? 'active' : ''; ?>" data-page="eoi">
+            <div class="nav-icon">
+              <i class="fas fa-file-contract"></i>
+            </div>
+            <span class="nav-text">EOI</span>
+          </a>
+        </li>
         <li class="nav-item">
           <a href="bookings.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'bookings.php') ? 'active' : ''; ?>" data-page="bookings">
             <div class="nav-icon">
@@ -43,14 +50,7 @@ $isLeadsPage = $currentPage == 'leads.php';
           </a>
         </li>
         
-        <li class="nav-item">
-          <a href="eoi.php" class="nav-link <?php echo (basename($_SERVER['PHP_SELF']) == 'eoi.php') ? 'active' : ''; ?>" data-page="eoi">
-            <div class="nav-icon">
-              <i class="fas fa-file-contract"></i>
-            </div>
-            <span class="nav-text">EOI</span>
-          </a>
-        </li>
+        
       </ul>
 
       <ul class="nav-menu">
@@ -93,7 +93,7 @@ $isLeadsPage = $currentPage == 'leads.php';
         </h1>
         <?php if ($isLeadsPage): ?>
             <div class="tab-row">
-                <button class="filter-btn active">
+                <button class="filter-btn  active">
                     My Leads <span class="count">46</span>
                 </button>
                 <button class="filter-btn booked">
